@@ -10,9 +10,12 @@
 
 <form action = "doSignUp" method = "post">
 	
-	name : <input type = "text" name = "name" /> <br>
-	email : <input type = "text" name = "email" /> <br>
-	pass : <input type = "password" name = "pass" /> <br>
+	Name:<br>
+	 <input type = "text" name = "name" /> <br>
+	E-mail:<br>
+	 <input type = "text" name = "email" /> <br>
+	Password:<br>
+	 <input type = "password" name = "pass" /> <br><br>
 	
 	<input type = "submit" value = "Signup" />
 	

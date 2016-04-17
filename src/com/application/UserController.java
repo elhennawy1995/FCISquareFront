@@ -61,7 +61,7 @@ public class UserController {
 		HttpSession session = request.getSession();
 		Long id = (Long) session.getAttribute("id");
 		//String serviceUrl = "http://se2firstapp-softwareeng2.rhcloud.com/FCISquare/rest/updatePosition";
-		String serviceUrl = "http://firstapp-squareappfci.rhcloud.com/FCISquareBack/rest/login";
+		String serviceUrl = "http://firstapp-squareappfci.rhcloud.com/FCISquareBack/rest/updatePosition";
 
 		String urlParameters = "id=" + id + "&lat=" + lat + "&long="+ lon;
 		// System.out.println(urlParameters);
@@ -87,9 +87,8 @@ public class UserController {
 	@POST
 	@Path("/doLogin")
 	@Produces(MediaType.TEXT_HTML)
-	public Response showHomePage(@FormParam("email") String email,
+	public Response showHomePagee(@FormParam("email") String email,
 			@FormParam("pass") String pass) {
-		//String serviceUrl = "http://se2firstapp-softwareeng2.rhcloud.com/FCISquare/rest/login";
 		String serviceUrl = "http://firstapp-squareappfci.rhcloud.com/FCISquareBack/rest/login";
 
 		String urlParameters = "email=" + email + "&pass=" + pass;
@@ -127,7 +126,6 @@ public class UserController {
 	@Produces(MediaType.TEXT_HTML)
 	public Response showHomePage(@FormParam("name") String name,
 			@FormParam("email") String email, @FormParam("pass") String pass) {
-		//String serviceUrl = "http://se2firstapp-softwareeng2.rhcloud.com/FCISquare/rest/signup";
 		String serviceUrl = "http://firstapp-squareappfci.rhcloud.com/FCISquareBack/rest/signup";
 
 		String urlParameters = "name=" + name + "&email=" + email + "&pass="
@@ -164,7 +162,6 @@ public class UserController {
 	@Path("/doLastLocation")
 	@Produces(MediaType.TEXT_HTML)
 	public Response showLastLocation(@FormParam("id") String id) {
-		//String serviceUrl = "http://se2firstapp-softwareeng2.rhcloud.com/FCISquare/rest/login";
 		String serviceUrl = "http://firstapp-squareappfci.rhcloud.com/FCISquareBack/rest/userLastPosition";
 
 		String urlParameters = "id=" + id ;
@@ -178,13 +175,13 @@ public class UserController {
 			obj = (JSONObject) parser.parse(retJson);
 			session.setAttribute("lat", obj.get("lat"));
 			session.setAttribute("long", obj.get("long"));
-			Map<String, String> map = new HashMap<String, String>();
+			Map<String, Double> map = new HashMap<String, Double>();
 
-			map.put("lat", (String) obj.get("lat"));
-			map.put("long", (String) obj.get("long"));
-
-			return Response.ok(new Viewable("/ShowLocation.jsp", map)).build();
-
+			map.put("lat", (Double) obj.get("lat"));
+			map.put("long", (Double) obj.get("long"));
+			
+			return Response.ok(new Viewable("/location.jsp", map)).build();
+			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

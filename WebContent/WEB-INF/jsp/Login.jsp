@@ -21,8 +21,11 @@
 
 <form action = "doLogin" method = "post" >
 	
-	Email <input type="text" name = "email" /> <br>
-	Password: <input type="password" name = "pass" /> <br>
+	Email: <br>
+     <input type="text" name = "email" /> <br>
+	Password: <br>
+	 <input type="password" name = "pass" /> <br><br>
+	 
 	<input type="submit" value = "Login" />
 
 

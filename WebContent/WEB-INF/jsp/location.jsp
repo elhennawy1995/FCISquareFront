@@ -4,15 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Last Location</title>
+<title>Last Location</title>
 </head>
 <body>
-	<h1>View User Last Position by inserting his id</h1>
-	<form action="doLastLocation" method="post">
-		UserId:<br>
-		 <input type = "text" name = "id"> <br><br>
-		 
-		<input type="submit" value="Find">
-	</form>
+	<p> paragraph </p>
+	
+	 <%=request.getAttribute("map")%> 
+	 
 </body>
 </html>
